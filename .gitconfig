@@ -1,0 +1,76 @@
+[alias]
+	br = branch
+	ci = commit
+	cia = commit -am
+	co = checkout
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %ci) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	rd = reset --hard
+	st = status
+    df = diff -w
+[branch]
+	autosetuprebase = always
+[branch "master"]
+	rebase = true
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	pager = true
+	status = auto
+	ui = true
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	frag = magenta bold
+	meta = yellow bold
+	new = green bold
+	old = red bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[core]
+#	autocrlf = input
+	editor = vim
+	whitespace = trailing-space,space-before-tab,indent-with-non-tab
+	gitproxy = gitproxy
+[filter "tabspace"]
+	clean = expand --tabs 4 --initial
+	smudge = unexpand --tabs 4 --first-only
+[receive]
+	denycurrentbranch = ignore
+[user]
+	name = bevin
+	email = beviniy@gmail.com
+
+[difftool]
+	prompt = false
+
+#[mergetool "becompare"]
+#	prompt = false
+#	keepBackup = false
+#	bc3 = trustExitCode
+#[merge]
+#	tool = bc3
+#
+#[mergetool "Kaleidoscope"]
+#	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+#	trustExitCode = true
+#
+#
+#
+#[difftool "Kaleidoscope"]
+#	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+#
+#[diff]
+#	tool = bc3
+[merge]
+	tool = bc2
+[mergetool "bc2"]
+	prompt = false
+	keepBackup = false
+	bc2 = trustExitCode
+	path = /usr/local/bin/bcomp
+
